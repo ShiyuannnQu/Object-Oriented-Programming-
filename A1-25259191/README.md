@@ -110,4 +110,6 @@ New-Item -ItemType Directory -Path .\bin -Force | Out-Null
 | Part 5：集合管理 | `AppointmentManager` | 添加、两种筛选、全体及两种子集排序、两种取消、缺失结果警告及自定义时间表 |
 | Part 6：端到端演示 | `AssignmentOne` | 同人同时冲突、不同人同时成功、非法数据、取消不存在预约、失败前后数量及取消后的结果 |
 
-项目 WakaTime 报告和个人讲解视频仍待完成。CLI 的 `6 mins` 是当天账户汇总，未限定本项目，不能作为完整作业报告；参见 [WakaTime 状态](reports/WAKATIME-STATUS.md)。GitHub 上传及远端核验须记录实际结果；持续开发历史需要真实的过程提交，本次上传本身不代表已有整个作业周期的进度记录。
+项目已上传到 [GitHub 的 A1-25259191 目录](https://github.com/ShiyuannnQu/Object-Oriented-Programming-/tree/main/A1-25259191)，远端文件已逐一校验与本地一致。
+
+项目 WakaTime 报告和个人讲解视频仍待完成。CLI 的 `6 mins` 是当天账户汇总，未限定本项目，不能作为完整作业报告；参见 [WakaTime 状态](reports/WAKATIME-STATUS.md)。持续开发历史需要实际的过程提交，本次上传本身不代表已有整个作业周期的进度记录。

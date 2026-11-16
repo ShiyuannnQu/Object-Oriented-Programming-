@@ -13,15 +13,15 @@
 - [x] 行为验证结果：`All 186 checks passed.`，真实输出保存于 `reports/checks-output.txt`。
 - [x] 主演示运行正常结束并输出 180 行；预约数量为添加后 9、失败添加后 9、取消后 6；输出保存于 `reports/demo-output.txt`。
 - [x] 11 类 Javadoc 经过 `-Xdoclint:all -Werror` 检查通过，无警告；参见 `reports/VERIFICATION.md`。
-- [ ] 本轮最终 ZIP 解压到独立目录后重新编译、运行和验证；上一版独立解压的演示及 186 项检查已通过，本轮最终结果待记录。
-- [ ] 本轮 ZIP 内容、源文件完整性与项目配置复核；打包排除编译输出、生成的 Javadoc、临时文件和 Git 元数据。
+- [x] 编号项目 ZIP 解压到独立目录后重新编译、运行和验证，演示及 186 项检查通过。
+- [x] ZIP 内容、源文件完整性与项目配置已复核；打包排除编译输出、生成的 Javadoc、临时文件和 Git 元数据。
 
 ## 必须由本人完成和核对
 
 - [x] 学号及命名标识已确定：`25259191`，项目 `A1-25259191`，压缩包 `A1-25259191.zip`。
 - [ ] 能解释关键代码、文档、四大 OOP 支柱与业务规则。
 - [x] GitHub 仓库地址已提供：[Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)。
-- [ ] 项目已上传到该仓库，且远端文件、提交和访问权限已核验。
+- [x] 项目已上传到该仓库的 `main/A1-25259191` 目录，远端文件、提交和访问权限已核验；仓库当前为公开可访问。
 - [ ] GitHub 包含真实、持续、内容明确的进度提交；本次最终上传本身不代表已具备整个作业周期的持续历史。
 - [ ] 提交评论中提供上述 GitHub 链接，并确认仓库可访问。
 - [ ] WakaTime 已登录并实际跟踪本项目，导出覆盖真实工作过程的截图或报告。现有 `6 mins` 仅为当天账户汇总，不能作为完整项目报告；参见 `reports/WAKATIME-STATUS.md`。
