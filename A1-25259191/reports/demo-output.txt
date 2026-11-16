@@ -1,0 +1,180 @@
+A1 APPOINTMENT SYSTEM
+All patient data is fictional. Bookings represent the current day only.
+Assumptions: 16:00 is an allowed start; phone cancellation removes all matches.
+Working days are stored as staff details; no extra day-of-week booking rule is added.
+
+=== PARTS 1-3: eight professionals, six concrete types ===
+General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+  Service: Provides general consultations and preventive health care.
+General Practitioner {ID=102, Name=Dr Sam Patel, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+  Service: Provides general consultations and preventive health care.
+General Practitioner {ID=103, Name=Dr Jamie Lee, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+  Service: Provides general consultations and preventive health care.
+General Surgeon {ID=201, Name=Dr Taylor Morgan, Working days=[Monday, Wednesday, Friday], Surgical focus=Abdominal surgery}
+  Service: Provides surgical consultations, focusing on Abdominal surgery.
+Orthopaedic Doctor {ID=301, Name=Dr Jordan Kim, Working days=[Monday, Wednesday, Friday], Orthopaedic focus=Joint care}
+  Service: Provides bone and joint consultations, focusing on Joint care.
+Neurologist {ID=401, Name=Dr Casey Brown, Working days=[Monday, Wednesday, Friday], Neurological focus=Epilepsy}
+  Service: Provides neurological consultations, focusing on Epilepsy.
+Paediatrician {ID=501, Name=Dr Riley Wilson, Working days=[Monday, Wednesday, Friday], Maximum patient age=18}
+  Service: Provides children's health consultations up to age 18 in this simulation.
+Nurse {ID=601, Name=Robin Davis, Working days=[Monday, Wednesday, Friday], Registration level=Registered nurse}
+  Service: Provides nursing assessments and patient care as a Registered nurse.
+ID 101 works on Monday: true
+
+=== PARTS 4-6: configured slots and initially empty collection ===
+Allowed start times: 08:00 08:30 09:00 09:30 10:00 10:30 11:00 11:30 12:00 12:30 13:00 13:30 14:00 14:30 15:00 15:30 16:00 
+
+=== Initial appointments ===
+WARNING: No appointments found.
+
+=== ADD: deliberately unsorted bookings across every professional type ===
+SUCCESS: Booked Ava Smith at 11:00 with professional ID 101.
+SUCCESS: Booked Noah Jones at 09:00 with professional ID 201.
+SUCCESS: Booked Ava Smith at 08:30 with professional ID 401.
+SUCCESS: Booked Mia Williams at 09:00 with professional ID 301.
+SUCCESS: Booked Leo Evans at 13:30 with professional ID 501.
+SUCCESS: Booked Isla Taylor at 10:00 with professional ID 601.
+SUCCESS: Booked Ethan Clark at 16:00 with professional ID 102.
+SUCCESS: Booked Sofia Hall at 08:00 with professional ID 103.
+SUCCESS: Booked Ava Smith at 09:30 with professional ID 101.
+Current appointment count: 9
+
+=== VIEW ALL: insertion order ===
+1. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+2. Time: 09:00 | Patient {Name=Noah Jones, Mobile phone=0412345679}
+  Professional: General Surgeon {ID=201, Name=Dr Taylor Morgan, Working days=[Monday, Wednesday, Friday], Surgical focus=Abdominal surgery}
+3. Time: 08:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: Neurologist {ID=401, Name=Dr Casey Brown, Working days=[Monday, Wednesday, Friday], Neurological focus=Epilepsy}
+4. Time: 09:00 | Patient {Name=Mia Williams, Mobile phone=0412345680}
+  Professional: Orthopaedic Doctor {ID=301, Name=Dr Jordan Kim, Working days=[Monday, Wednesday, Friday], Orthopaedic focus=Joint care}
+5. Time: 13:30 | Patient {Name=Leo Evans, Mobile phone=0412345681}
+  Professional: Paediatrician {ID=501, Name=Dr Riley Wilson, Working days=[Monday, Wednesday, Friday], Maximum patient age=18}
+6. Time: 10:00 | Patient {Name=Isla Taylor, Mobile phone=0412345682}
+  Professional: Nurse {ID=601, Name=Robin Davis, Working days=[Monday, Wednesday, Friday], Registration level=Registered nurse}
+7. Time: 16:00 | Patient {Name=Ethan Clark, Mobile phone=0412345683}
+  Professional: General Practitioner {ID=102, Name=Dr Sam Patel, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+8. Time: 08:00 | Patient {Name=Sofia Hall, Mobile phone=0412345684}
+  Professional: General Practitioner {ID=103, Name=Dr Jamie Lee, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+9. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+
+=== SORT ALL: earliest to latest ===
+1. Time: 08:00 | Patient {Name=Sofia Hall, Mobile phone=0412345684}
+  Professional: General Practitioner {ID=103, Name=Dr Jamie Lee, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+2. Time: 08:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: Neurologist {ID=401, Name=Dr Casey Brown, Working days=[Monday, Wednesday, Friday], Neurological focus=Epilepsy}
+3. Time: 09:00 | Patient {Name=Noah Jones, Mobile phone=0412345679}
+  Professional: General Surgeon {ID=201, Name=Dr Taylor Morgan, Working days=[Monday, Wednesday, Friday], Surgical focus=Abdominal surgery}
+4. Time: 09:00 | Patient {Name=Mia Williams, Mobile phone=0412345680}
+  Professional: Orthopaedic Doctor {ID=301, Name=Dr Jordan Kim, Working days=[Monday, Wednesday, Friday], Orthopaedic focus=Joint care}
+5. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+6. Time: 10:00 | Patient {Name=Isla Taylor, Mobile phone=0412345682}
+  Professional: Nurse {ID=601, Name=Robin Davis, Working days=[Monday, Wednesday, Friday], Registration level=Registered nurse}
+7. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+8. Time: 13:30 | Patient {Name=Leo Evans, Mobile phone=0412345681}
+  Professional: Paediatrician {ID=501, Name=Dr Riley Wilson, Working days=[Monday, Wednesday, Friday], Maximum patient age=18}
+9. Time: 16:00 | Patient {Name=Ethan Clark, Mobile phone=0412345683}
+  Professional: General Practitioner {ID=102, Name=Dr Sam Patel, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+
+
+=== FILTER: professional ID 101 ===
+1. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+2. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+
+=== FILTER AND SORT: professional ID 101 ===
+1. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+2. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+
+=== FILTER: patient phone 0412345678 ===
+1. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+2. Time: 08:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: Neurologist {ID=401, Name=Dr Casey Brown, Working days=[Monday, Wednesday, Friday], Neurological focus=Epilepsy}
+3. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+
+=== FILTER AND SORT: patient phone 0412345678 ===
+1. Time: 08:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: Neurologist {ID=401, Name=Dr Casey Brown, Working days=[Monday, Wednesday, Friday], Neurological focus=Epilepsy}
+2. Time: 09:30 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+3. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+
+=== FILTER: nonexistent professional ID ===
+WARNING: No appointments found.
+
+=== FILTER: nonexistent patient phone ===
+WARNING: No appointments found.
+
+=== ERROR CASES: rejected requests leave the collection unchanged ===
+Two distinct objects with ID 101 are equal: true
+WARNING: Professional ID 101 is already booked at 11:00.
+WARNING: 08:15 is not a configured clinic slot.
+WARNING: 07:30 is not a configured clinic slot.
+WARNING: 16:30 is not a configured clinic slot.
+WARNING: Patient name must not be blank.
+WARNING: Patient mobile phone must contain 7 to 15 digits.
+WARNING: Health professional is required.
+WARNING: Time must use HH:mm form, for example 08:30.
+WARNING: Appointment is required.
+Appointment count before/after rejected requests: 9/9
+
+=== CANCEL: professional ID plus time, then show the update ===
+SUCCESS: Cancelled professional ID 101 at 09:30.
+
+=== Professional ID 101 after cancellation ===
+1. Time: 11:00 | Patient {Name=Ava Smith, Mobile phone=0412345678}
+  Professional: General Practitioner {ID=101, Name=Dr Alex Chen, Working days=[Monday, Wednesday, Friday], Bulk billing=true}
+
+WARNING: No appointment matches that professional ID and time.
+
+=== CANCEL: all remaining appointments for one patient phone ===
+SUCCESS: Cancelled 2 appointment(s) for patient phone 0412345678.
+
+=== Patient after cancellation ===
+WARNING: No appointments found.
+WARNING: No appointments match patient phone 0412345678.
+
+=== Updated full appointment collection ===
+1. Time: 08:00 | Patient {Name=Sofia Hall, Mobile phone=0412345684}
+  Professional: General Practitioner {ID=103, Name=Dr Jamie Lee, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+2. Time: 09:00 | Patient {Name=Noah Jones, Mobile phone=0412345679}
+  Professional: General Surgeon {ID=201, Name=Dr Taylor Morgan, Working days=[Monday, Wednesday, Friday], Surgical focus=Abdominal surgery}
+3. Time: 09:00 | Patient {Name=Mia Williams, Mobile phone=0412345680}
+  Professional: Orthopaedic Doctor {ID=301, Name=Dr Jordan Kim, Working days=[Monday, Wednesday, Friday], Orthopaedic focus=Joint care}
+4. Time: 10:00 | Patient {Name=Isla Taylor, Mobile phone=0412345682}
+  Professional: Nurse {ID=601, Name=Robin Davis, Working days=[Monday, Wednesday, Friday], Registration level=Registered nurse}
+5. Time: 13:30 | Patient {Name=Leo Evans, Mobile phone=0412345681}
+  Professional: Paediatrician {ID=501, Name=Dr Riley Wilson, Working days=[Monday, Wednesday, Friday], Maximum patient age=18}
+6. Time: 16:00 | Patient {Name=Ethan Clark, Mobile phone=0412345683}
+  Professional: General Practitioner {ID=102, Name=Dr Sam Patel, Working days=[Monday, Wednesday, Friday], Bulk billing=false}
+
+Final current-day appointment count: 6
+
+=== CONFIGURATION: replacement slots, including a quarter-hour start ===
+Allowed start times: 09:00 09:15 10:00 
+SUCCESS: Booked Custom Schedule at 09:15 with professional ID 201.
+WARNING: 08:00 is not a configured clinic slot.
+
+=== Custom schedule sorted appointments ===
+1. Time: 09:15 | Patient {Name=Custom Schedule, Mobile phone=0412345686}
+  Professional: General Surgeon {ID=201, Name=Dr Taylor Morgan, Working days=[Monday, Wednesday, Friday], Surgical focus=Abdominal surgery}
+
+SUCCESS: Cancelled 1 appointment(s) for patient phone 0412345686.
+
+=== Custom schedule after cancellation ===
+WARNING: No appointments found.

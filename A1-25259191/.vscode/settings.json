@@ -1,0 +1,18 @@
+{
+    "files.encoding": "utf8",
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\Users\\lenovo\\.jdks\\jdk-21.0.13+9",
+            "default": true
+        }
+    ],
+    "java.debug.settings.console": "integratedTerminal",
+    "java.debug.settings.vmArgs": "-Dfile.encoding=UTF-8",
+    "terminal.integrated.env.windows": {
+        "JAVA_HOME": "C:\\Users\\lenovo\\.jdks\\jdk-21.0.13+9",
+        "PATH": "C:\\Users\\lenovo\\.jdks\\jdk-21.0.13+9\\bin;${env:PATH}"
+    }
+}

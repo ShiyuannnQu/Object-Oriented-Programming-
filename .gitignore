@@ -1,0 +1,12 @@
+# Local Java build output
+**/bin/
+**/out/
+*.class
+**/checks-bin/
+**/javadoc/
+
+# Workspace-only files
+/tmp/
+/output/
+/environment-check/
+/.vscode/
