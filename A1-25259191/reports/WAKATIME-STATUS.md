@@ -1,9 +1,9 @@
-# WakaTime 当前可核实状态
+# WakaTime Status
 
-查询日期：2026-11-16（Asia/Shanghai）。
+Query date: 2026-11-16 (Asia/Shanghai).
 
-- VS Code 的 WakaTime 扩展已安装，本机存在 WakaTime 用户配置。
-- 使用现有 CLI 的只读命令 `wakatime-cli --today --timeout 15` 查询，实际返回：`6 mins`。
-- 该结果是账户“今天”的汇总显示，未按本作业项目筛选，也没有涵盖完整作业周期。因此不能把它当作本作业完整工作量证明。
-- 尚未取得符合 A1 提交要求的项目截图或报告；请在 WakaTime Dashboard 核实项目名称、日期范围及活动类别后导出真实记录。
-- 导出后将项目报告命名为 `A1-25259191-WakaTime.png`、`.jpg` 或 `.pdf`，并保存实际项目名称、日期范围和记录内容。
+- The WakaTime extension is installed in VS Code, and a WakaTime user configuration exists on this computer.
+- The read-only CLI command `wakatime-cli --today --timeout 15` returned `6 mins` when queried.
+- This result is the account's total for that day. It was not filtered to this assignment project and does not cover the full assessment period, so it cannot establish the complete time spent on this assignment.
+- A project screenshot or report meeting the A1 submission requirements has not yet been obtained. Check the project name, date range and activity categories in the WakaTime Dashboard, then export the actual records.
+- Name the exported report `A1-25259191-WakaTime.png`, `.jpg` or `.pdf`, and retain the actual project name, date range and recorded activity.

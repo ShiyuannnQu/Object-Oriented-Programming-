@@ -1,35 +1,35 @@
-# A1 提交检查表
+# A1 Submission Checklist
 
-本表区分已完成的本地验证与仍需完成的提交材料。学号为 `25259191`，项目名称为 `A1-25259191`，使用 JDK 21。
+This checklist distinguishes completed local verification from submission materials that still need to be prepared. The student ID is `25259191`, the project name is `A1-25259191`, and the project uses JDK 21.
 
-## 本地材料与整体验证
+## Local Materials and Overall Verification
 
-- [x] 源码包括 11 个 Java 类，六种具体医护类型中包含必选 GP。
-- [x] 已提供运行入口、行为检查和设计说明。
-- [x] 开发版本已确定为 JDK 21。
-- [ ] 结合 Modules 1–3 复习实际使用的技术；参见 `COURSE-CHECK.md`。
-- [ ] 能解释默认时间端点、按手机号取消等设计假设。
-- [x] 整体编译结果：11 个生产源码文件使用 `--release 21 -encoding UTF-8 -Xlint:all -Werror` 编译通过。
-- [x] 行为验证结果：`All 186 checks passed.`，真实输出保存于 `reports/checks-output.txt`。
-- [x] 主演示运行正常结束并输出 180 行；预约数量为添加后 9、失败添加后 9、取消后 6；输出保存于 `reports/demo-output.txt`。
-- [x] 11 类 Javadoc 经过 `-Xdoclint:all -Werror` 检查通过，无警告；参见 `reports/VERIFICATION.md`。
-- [x] 编号项目 ZIP 解压到独立目录后重新编译、运行和验证，演示及 186 项检查通过。
-- [x] ZIP 内容、源文件完整性与项目配置已复核；打包排除编译输出、生成的 Javadoc、临时文件和 Git 元数据。
+- [x] The source includes 11 Java classes and six concrete health professional types, including the required GP.
+- [x] A runnable entry point, behaviour checks and design documentation are provided.
+- [x] JDK 21 has been selected as the development version.
+- [ ] Review the techniques actually used against Modules 1–3; see `COURSE-CHECK.md`.
+- [ ] Be able to explain design assumptions such as the default time endpoints and cancellation by mobile phone number.
+- [x] Compilation result: all 11 production source files compile successfully with `--release 21 -encoding UTF-8 -Xlint:all -Werror`.
+- [x] Behaviour verification result: `All 186 checks passed.` The actual output is saved in `reports/checks-output.txt`.
+- [x] The main demonstration finishes normally and produces 180 lines. Appointment counts are 9 after successful additions, 9 after failed additions, and 6 after cancellations. Output is saved in `reports/demo-output.txt`.
+- [x] Javadoc for all 11 classes passes `-Xdoclint:all -Werror` with no warnings; see `reports/VERIFICATION.md`.
+- [x] The student-ID-named project ZIP has been extracted into a separate directory, recompiled, run and verified. The demonstration and all 186 checks pass.
+- [x] ZIP contents, source completeness and project configuration have been reviewed. Packaging excludes compiled output, generated Javadoc, temporary files and Git metadata.
 
-## 必须由本人完成和核对
+## Items to Complete and Verify Personally
 
-- [x] 学号及命名标识已确定：`25259191`，项目 `A1-25259191`，压缩包 `A1-25259191.zip`。
-- [ ] 能解释关键代码、文档、四大 OOP 支柱与业务规则。
-- [x] GitHub 仓库地址已提供：[Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)。
-- [x] 项目已上传到该仓库的 `main/A1-25259191` 目录，远端文件、提交和访问权限已核验；仓库当前为公开可访问。
-- [ ] GitHub 包含真实、持续、内容明确的进度提交；本次最终上传本身不代表已具备整个作业周期的持续历史。
-- [ ] 提交评论中提供上述 GitHub 链接，并确认仓库可访问。
-- [ ] WakaTime 已登录并实际跟踪本项目，导出覆盖真实工作过程的截图或报告。现有 `6 mins` 仅为当天账户汇总，不能作为完整项目报告；参见 `reports/WAKATIME-STATUS.md`。
-- [ ] WakaTime 附件命名为 `A1-25259191-WakaTime.png`、`.jpg` 或 `.pdf`。
-- [ ] 本人亲自准备、讲解并录制不超过 5 分钟的视频；逐项说明四大 OOP 支柱的含义、代码位置和使用原因。
-- [ ] 视频上传 SCU OneDrive，提交评论中提供可分享链接，并检查权限和播放。
-- [ ] Blackboard 最新截止时间及页面时区已核对；本地旧截图与 brief 曾出现不同时间显示，不能自行推定差异原因。
-- [ ] 最终项目压缩到 `output/A1-25259191.zip`，上传 ZIP、WakaTime 附件，在评论中提供 GitHub 和视频链接。
-- [ ] 已完成平台的最终提交操作并保存回执；仅上传文件或保存草稿不等于完成提交。
+- [x] The student ID and naming identifier are confirmed: `25259191`, project `A1-25259191`, archive `A1-25259191.zip`.
+- [ ] Be able to explain the key code, documentation, four pillars of OOP and business rules.
+- [x] The GitHub repository URL is provided: [Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-).
+- [x] The project has been uploaded to the repository's `main/A1-25259191` directory. Remote files, commits and access permissions have been verified; the repository is currently publicly accessible.
+- [ ] GitHub contains genuine, continuous progress commits with clear descriptions. This final upload alone does not establish a continuous history across the assessment period.
+- [ ] Include the GitHub link above in the submission comments and confirm that the repository is accessible.
+- [ ] Sign in to WakaTime, confirm that it actually tracks this project, and export screenshots or a report covering the genuine work process. The existing `6 mins` is only the account summary for that day and is not a complete project report; see `reports/WAKATIME-STATUS.md`.
+- [ ] Name the WakaTime attachment `A1-25259191-WakaTime.png`, `.jpg` or `.pdf`.
+- [ ] Personally prepare, explain and record a video of no more than 5 minutes. For each of the four pillars of OOP, explain its meaning, identify its code location and justify its use.
+- [ ] Upload the video to SCU OneDrive, include a shareable link in the submission comments, and check access permissions and playback.
+- [ ] Verify the latest Blackboard deadline and the page's time zone. An older local screenshot and the brief displayed different times; do not assume the reason for the difference.
+- [ ] Package the final project as `output/A1-25259191.zip`, upload the ZIP and WakaTime attachment, and include the GitHub and video links in the comments.
+- [ ] Complete the platform's final submission action and save the receipt. Uploading files or saving a draft alone does not complete the submission.
 
-完成上传后，保存提交回执，并保留最终 ZIP、项目时间报告及视频链接。
+After uploading, save the submission receipt and retain the final ZIP, project time report and video link.

@@ -1,26 +1,26 @@
-# 本地程序验证记录
+# Local Verification Record
 
-验证日期：2026-11-16（Asia/Shanghai）。学号：`25259191`；项目：`A1-25259191`。本记录保存已经完成的本地编译、演示和行为检查结果。
+Verification date: 2026-11-16 (Asia/Shanghai). Student ID: `25259191`. Project: `A1-25259191`. This record documents the completed local compilation, demonstration and behaviour checks.
 
-| 检查 | 实际结果 |
+| Check | Observed result |
 |---|---|
-| Java 开发环境 | Temurin JDK 21.0.13 |
-| 生产源码 | 11 个 Java 文件，无第三方运行依赖 |
-| 编译 | `--release 21 -encoding UTF-8 -Xlint:all -Werror` 通过 |
-| 行为检查 | `All 186 checks passed.` |
-| 脚本演示 | 正常结束，输出 180 行；添加后 9 条，失败添加后仍 9 条，取消后 6 条 |
-| 角色演示 | 3 位 GP，外科、骨科、神经内科、儿科、护士各 1 位 |
-| 时间表 | 08:00 和 16:00 边界通过，08:15 / 07:30 / 16:30 拒绝；替代时间表可接收 09:15 |
-| 封装与身份 | 检查覆盖工作日数组、时间表数组及查询列表的防御复制，以及 ID 相等与预约冲突 |
-| 文档 | 11 类 Javadoc 经 `-Xdoclint:all -Werror` 通过 |
-| VS Code | 三份项目 JSON 配置可解析，默认编译任务和独立行为检查任务已配置 |
-| 独立解压验证 | 编号项目 ZIP 解压到独立目录后重新编译，180 行演示及 186 项检查通过 |
-| GitHub | 已上传至 `main/A1-25259191`；仓库文件已逐一校验与本地一致 |
+| Java environment | Temurin JDK 21.0.13 |
+| Production source | 11 Java files with no third-party runtime dependencies |
+| Compilation | Passed with `--release 21 -encoding UTF-8 -Xlint:all -Werror` |
+| Behaviour checks | `All 186 checks passed.` |
+| Scripted demonstration | Completed normally with 180 output lines; 9 appointments after adding, still 9 after rejected requests, and 6 after cancellations |
+| Professional types | Three GPs and one each of general surgeon, orthopaedic doctor, neurologist, paediatrician and nurse |
+| Schedule | Accepted the 08:00 and 16:00 boundaries; rejected 08:15, 07:30 and 16:30; accepted 09:15 with a replacement schedule |
+| Encapsulation and identity | Checks cover defensive copies of working-day arrays, slot arrays and query lists, together with ID equality and booking conflicts |
+| Documentation | Javadoc for all 11 classes passed `-Xdoclint:all -Werror` |
+| VS Code | All three project JSON files are valid; the default build task and a separate behaviour-check task are configured |
+| Independent extraction | The project ZIP was extracted to a separate directory and recompiled; the 180-line demonstration and all 186 checks passed |
+| GitHub | Uploaded to `main/A1-25259191`; repository files were verified individually against the local files |
 
-`demo-output.txt` 保存演示输出，`checks-output.txt` 保存行为检查输出。
+`demo-output.txt` contains the demonstration output, and `checks-output.txt` contains the behaviour-check output.
 
-生成的 Javadoc 位于本机 `javadoc/index.html`；它属于构建输出，不计入源码压缩包。
+Generated Javadoc is available locally at `javadoc/index.html`. It is build output and is excluded from the source archive.
 
-最终压缩包输出到工作区 `output/A1-25259191.zip`。文件清单、SHA-256 和解压运行结果记录于 `output/A1-25259191-VERIFICATION.md`。
+The final archive is saved to `output/A1-25259191.zip` in the workspace. The file list, SHA-256 checksum and extraction results are recorded in `output/A1-25259191-VERIFICATION.md`.
 
-GitHub 仓库：[Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)。代码与文档已经上传并核验，提交平台上的操作状态见项目提交检查表。
+GitHub repository: [Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-). The code and documentation have been uploaded and verified. See the project submission checklist for the submission platform status.

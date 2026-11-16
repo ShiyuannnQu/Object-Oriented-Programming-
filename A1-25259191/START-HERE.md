@@ -1,19 +1,19 @@
-# 从这里开始
+# Getting Started
 
-项目名为 `A1-25259191`，学号为 `25259191`，使用 VS Code 和 JDK 21。项目包含 GP、普外科、骨科、神经内科、儿科和护士六种具体医护类型，以及患者、预约、管理类和控制台演示。
+The project is named `A1-25259191`, uses student ID `25259191`, and runs with VS Code and JDK 21. It includes six concrete health professional types: general practitioner, general surgeon, orthopaedic doctor, neurologist, paediatrician and nurse. It also includes patient, appointment and appointment management classes, together with a scripted console demonstration.
 
-GitHub 仓库为 [Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)；最终压缩包输出到工作区 `output/A1-25259191.zip`。
+The GitHub repository is [Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-). The final archive is saved to `output/A1-25259191.zip` in the workspace.
 
-建议按下面的顺序使用本项目：
+Use the project in the following order:
 
-1. 阅读 [COURSE-CHECK.md](COURSE-CHECK.md)，结合 Modules 1–3 复习实际使用的 Java 概念。开发版本已确定为 JDK 21。
-2. 用 VS Code 打开整个项目文件夹，在终端运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1`，观察正常和失败操作。
-3. 阅读 [README.md](README.md)，对照源码说明每个类的责任、四大 OOP 支柱和业务假设。
-4. 运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\verify.ps1`，核对实际检查结果；当前已有 186 项行为检查通过。
-5. 保存实际 GitHub 提交与 WakaTime 项目记录，并确认能解释每个类、预约规则和失败案例。
-6. 使用 [VIDEO-PREPARATION.md](VIDEO-PREPARATION.md) 自测理解，再亲自准备并录制讲解。该文档不是逐字稿。
-7. 按 [SUBMISSION-CHECKLIST.md](SUBMISSION-CHECKLIST.md) 逐项核对提交材料和仍待完成的事项。
+1. Read [COURSE-CHECK.md](COURSE-CHECK.md) and review the Java concepts used against Modules 1-3. The development version is JDK 21.
+2. Open the entire project folder in VS Code. Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1` in the terminal and inspect both successful and rejected operations.
+3. Read [README.md](README.md) alongside the source code to understand each class's responsibilities, the four pillars of OOP and the business assumptions.
+4. Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\verify.ps1` and inspect the results. All 186 behaviour checks have passed.
+5. Keep the actual GitHub commits and WakaTime project records, and make sure you can explain each class, booking rule and failure case.
+6. Use [VIDEO-PREPARATION.md](VIDEO-PREPARATION.md) to check your understanding, then prepare and record your explanation. That document is a preparation guide, not a word-for-word script.
+7. Work through [SUBMISSION-CHECKLIST.md](SUBMISSION-CHECKLIST.md) to check the submission materials and remaining tasks.
 
-默认预约开始时间为 08:00 到 16:00、每 30 分钟一档，包含 16:00；按患者手机号取消会删除全部匹配预约。固定工作日保存在医护资料中，未附加非工作日拒约规则。这些设计选择应能够在演示中解释。
+The default appointment start times run from 08:00 to 16:00 in 30-minute intervals, including a 16:00 start. Cancellation by patient phone number removes every matching appointment. Fixed weekly working days are stored in professional details; bookings are not additionally rejected based on the day of the week. Be prepared to explain these design choices in the demonstration.
 
-项目已上传到 GitHub 并核验远端文件。当前仍需准备完整的 WakaTime 项目报告和不超过 5 分钟的个人讲解视频；最终提交状态见提交检查表。
+The project has been uploaded to GitHub and the remote files have been verified. A complete WakaTime project report and a personal explanation video of no more than five minutes are still required. See the submission checklist for the final submission status.

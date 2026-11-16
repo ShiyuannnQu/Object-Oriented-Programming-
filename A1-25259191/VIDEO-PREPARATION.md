@@ -1,35 +1,35 @@
-# 视频学习与自测
+# Video Preparation and Self-Check
 
-brief 要求由本人制作最多 5 分钟的视频，依次解释四大 OOP 支柱：名称、自己的概念解释、代码位置、选择理由。本文件仅提供学习问题和时间分配，不提供可照读的逐字稿，也不替代本人准备、讲解或录制。
+The brief requires you to personally create a video of no more than 5 minutes, explaining each of the four pillars of OOP in turn: its name, the concept in your own words, its code location and the reason for using it. This document provides study questions and a timing plan only. It is not a word-for-word script and does not replace your own preparation, explanation or recording.
 
-## 建议时间：4 分 30 秒
+## Suggested Duration: 4 Minutes 30 Seconds
 
-| 时间 | 本人准备的内容 |
+| Time | Content to prepare yourself |
 | --- | --- |
-| 00:00–00:20 | 简要说明系统处理的对象与当日预约范围 |
-| 00:20–01:15 | 封装：定位属性、构造校验及防御复制，解释具体保护什么 |
-| 01:15–02:00 | 抽象：定位抽象父类及共同方法约定，解释为何不创建普通父类对象 |
-| 02:00–02:45 | 继承：定位父子类、`super` 及共同资料复用，说明专业差异放在哪里 |
-| 02:45–03:40 | 多态：定位父类型数组和预约中的父类型引用，解释实际调用哪个子类行为 |
-| 03:40–04:10 | 选一个成功与一个失败案例，说明预期结果及相关责任类 |
-| 04:10–04:30 | 简要说明一项设计假设与取舍 |
+| 00:00–00:20 | Briefly explain the objects modelled by the system and its same-day appointment scope |
+| 00:20–01:15 | Encapsulation: locate the fields, constructor validation and defensive copies, and explain exactly what they protect |
+| 01:15–02:00 | Abstraction: locate the abstract superclass and shared method contracts, and explain why a generic superclass object is not created |
+| 02:00–02:45 | Inheritance: locate the superclass, subclasses, `super` calls and reuse of shared information, and explain where professional differences are represented |
+| 02:45–03:40 | Polymorphism: locate the superclass-typed array and superclass references in appointments, and explain which subclass behaviour is actually called |
+| 03:40–04:10 | Choose one successful and one failed operation, explaining the expected results and the responsible classes |
+| 04:10–04:30 | Briefly explain one design assumption and its trade-off |
 
-预留 30 秒给页面切换和表达停顿。不要为了讲完全部输出而挤掉四大支柱的解释。
+Allow 30 seconds for switching views and pauses. Do not sacrifice explanations of the four pillars to cover every line of output.
 
-## 不看答案也应能解释的问题
+## Questions You Should Be Able to Answer Without Notes
 
-- 为什么 `private` 后仍需要构造校验？如果直接返回工作日数组会发生什么？
-- ID 为什么保持不变？两个不同医护对象的 ID 相同时，为何在本模型中相等？
-- `HealthProfessional` 的抽象方法约定了什么？抽象与仅隐藏属性有什么区别？
-- 哪些资料由父类保存，哪些属于具体类型？`super` 在构造和详情输出中分别做什么？
-- 方法重写和重载有什么区别？哪些例子分别体现它们？
-- 同一个父类型循环怎样展示六种专业类型？增加第七种时，哪些位置需要改变？
-- 为什么 `Appointment` 不为六类医护人员分别设置六种字段？
-- 预约构造校验与管理类的重复预约检查为什么分开？
-- 为什么以整数分钟排序？`compareTo` 与 `Collections.sort` 如何协作？
-- 为什么同一时间、不同专业人员可以成功预约，而同一 ID 会被拒绝？
-- 按手机号取消多个相邻匹配项时，倒序删除解决了什么问题？
-- 默认 16:00 端点、手机号取消全部、工作日仅存储，哪些属于明确的设计解释？
-- 已有 186 项测试覆盖哪些行为？还有哪些边界情况值得讨论？
+- Why is constructor validation still needed when fields are `private`? What would happen if the working-days array were returned directly?
+- Why does an ID remain unchanged? Why are two different health professional objects with the same ID considered equal in this model?
+- What contract do the abstract methods of `HealthProfessional` define? How does abstraction differ from merely hiding fields?
+- Which information is stored by the superclass, and which belongs to concrete types? What does `super` do in constructors and when displaying details?
+- What is the difference between method overriding and overloading? Which examples demonstrate each one?
+- How can one loop using the superclass type display six professional types? Which locations would need to change if a seventh type were added?
+- Why does `Appointment` not define six separate fields for the six health professional types?
+- Why is appointment constructor validation separate from the manager's double-booking check?
+- Why are appointments sorted using integer minutes? How do `compareTo` and `Collections.sort` work together?
+- Why can different professionals be booked at the same time, while a second booking for the same professional ID at that time is rejected?
+- When cancelling multiple adjacent matches by mobile phone number, what problem does removing entries in reverse order solve?
+- Which explicit design interpretations cover the default 16:00 endpoint, cancelling all matches by mobile phone number and storing working days without additional booking restrictions?
+- Which behaviours do the existing 186 checks cover? What other boundary cases are worth discussing?
 
-先亲自写关键词，再试着不看稿回答，并实际定位到相应源码。无法解释的地方先学习和调试，再录制。
+First write your own keywords, then practise answering without a script and locate the corresponding source code. Study and debug anything you cannot explain before recording.

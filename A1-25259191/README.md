@@ -1,85 +1,85 @@
-# A1 当日医疗预约系统
+# A1 Same-Day Healthcare Appointment System
 
-这是一个 Java 控制台脚本演示：通过创建并协作使用对象，展示当天的医护资料与预约操作。共有 11 个源码类，无外部 Java 库依赖。
+This Java console demonstration creates collaborating objects to display health professional details and manage the current day's appointments. It contains 11 source classes and requires no external Java libraries.
 
-- 学号：`25259191`
-- 项目名称：`A1-25259191`
-- 开发环境：VS Code、JDK 21
-- GitHub：[Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)
-- 交付压缩包：工作区 `output/A1-25259191.zip`
+- Student ID: `25259191`
+- Project name: `A1-25259191`
+- Development environment: VS Code, JDK 21
+- GitHub: [Object-Oriented-Programming-](https://github.com/ShiyuannnQu/Object-Oriented-Programming-)
+- Delivery archive: `output/A1-25259191.zip` in the workspace
 
-GitHub 上传与远端核验状态以提交检查表中的实际结果为准。
+The submission checklist records the actual status of the GitHub upload and remote verification.
 
-## 类的责任
+## Class Responsibilities
 
-| 类 | 主要责任 |
+| Class | Main responsibility |
 | --- | --- |
-| `HealthProfessional` | 抽象父类；保存稳定数字 ID、姓名和固定工作日；校验、受控读取及按 ID 比较身份 |
-| `GeneralPractitioner` | GP 必选类型；增加 bulk billing 属性和一般诊疗服务说明 |
-| `GeneralSurgeon` | 普外科；增加 `surgicalFocus` |
-| `OrthopaedicDoctor` | 骨科；增加 `orthopaedicFocus` |
-| `Neurologist` | 神经内科；增加 `neurologicalFocus` |
-| `Paediatrician` | 儿科；增加 `maximumPatientAge` |
-| `Nurse` | 护士；增加 `registrationLevel` |
-| `Patient` | 保存经校验且不可变的姓名和手机号 |
-| `Appointment` | 关联患者、任意医护子类型和时间；校验基本完整性、转换时间并按时间比较 |
-| `AppointmentManager` | 管理预约集合及时间表；添加、冲突检查、筛选、排序、取消及结果格式化 |
-| `AssignmentOne` | `main` 入口；使用虚构资料编排正常与失败场景，不承担核心预约管理规则 |
+| `HealthProfessional` | Abstract base class; stores a stable numeric ID, name and fixed working days; validates data, provides controlled access and compares identities by ID |
+| `GeneralPractitioner` | Required GP type; adds the bulk billing attribute and a general consultation service description |
+| `GeneralSurgeon` | Represents a general surgeon; adds `surgicalFocus` |
+| `OrthopaedicDoctor` | Represents an orthopaedic doctor; adds `orthopaedicFocus` |
+| `Neurologist` | Represents a neurologist; adds `neurologicalFocus` |
+| `Paediatrician` | Represents a paediatrician; adds `maximumPatientAge` |
+| `Nurse` | Represents a nurse; adds `registrationLevel` |
+| `Patient` | Stores validated, immutable patient name and mobile phone details |
+| `Appointment` | Links a patient, any health professional subtype and a time; checks basic completeness, converts time values and compares appointments by time |
+| `AppointmentManager` | Manages the appointment collection and slot schedule; adds, checks conflicts, filters, sorts, cancels and formats results |
+| `AssignmentOne` | Provides the `main` entry point; uses fictional data to demonstrate successful and unsuccessful operations, while leaving core booking rules to the model and manager |
 
-六种医护子类均直接继承共同父类，通过三参构造提供默认专业信息，也提供四参构造。时间采用午夜起算的整数分钟，不以时间文本的字典序判断先后。
+All six health professional subclasses directly extend the shared base class. Each has a three-argument constructor with default professional details and a four-argument constructor. Times are stored as integer minutes since midnight, so ordering does not depend on the alphabetical order of time strings.
 
-## 四大 OOP 支柱
+## The Four Pillars of OOP
 
-| 支柱 | 源码位置 | 在本问题中的理由 |
+| Pillar | Location in the code | Reason for using it here |
 | --- | --- | --- |
-| 封装 Encapsulation | 核心属性为 `private final`；构造时校验；工作日及时间表数组防御复制；管理类返回集合副本 | 保持身份及对象资料有效，防止调用方通过返回的数组或集合直接改坏内部状态 |
-| 抽象 Abstraction | `HealthProfessional` 为抽象类，声明 `getProfessionalType()`、`describeService()` | 统一约定共同能力，避免直接创建没有具体专业类型的医护人员 |
-| 继承 Inheritance | 六个具体医护类 `extends HealthProfessional`，构造调用 `super`，详情复用父类 `toString()` | 共同身份、姓名、工作日与校验只维护一份，子类补充自己的资料和行为 |
-| 多态 Polymorphism | `AssignmentOne` 用 `HealthProfessional[]` 统一遍历并调用重写方法；`Appointment` 保存父类型引用 | 同一处理过程支持不同专业类型，预约无需为每种医护类型增加一套专用代码 |
+| Encapsulation | Core fields are `private final`; constructors validate data; working-day and slot arrays are defensively copied; the manager returns collection copies | Preserves valid identities and object data, preventing callers from changing internal state through returned arrays or collections |
+| Abstraction | `HealthProfessional` is abstract and declares `getProfessionalType()` and `describeService()` | Defines a common contract and prevents direct creation of a professional without a specific type |
+| Inheritance | Six concrete professional classes use `extends HealthProfessional`; constructors call `super`, and detail output reuses the parent's `toString()` | Maintains shared identity, name, working days and validation in one place, while subclasses add their own data and behaviour |
+| Polymorphism | `AssignmentOne` iterates over a `HealthProfessional[]` and calls overridden methods; `Appointment` stores a base-type reference | Supports different professional types through the same processing steps without separate appointment code for every type |
 
-方法重写与多态有关；构造和管理方法的重载是另外的概念，不应把二者混为一谈。
+Method overriding supports polymorphism. Constructor and manager method overloading are separate concepts and should not be confused with overriding.
 
-## 当前业务假设
+## Current Design Assumptions
 
-- 一个管理器代表当前一天的预约。没有日期字段、跨日预约或自动午夜清空机制，也没有界面、菜单、登录或持久化。
-- 默认时间表是 08:00、08:30……16:00，包含 16:00 作为开始时间；这是本项目对时间端点的设计解释。
-- 可通过构造方法替换整个时间表。自定义 `int[]` 必须非空、元素为一天内的有效分钟、严格升序且不重复；默认半小时限制不额外套用到替换表。
-- 同一专业人员 ID 加同一时间为冲突；不同专业人员可以在同一时间预约。两个不同对象、甚至不同子类对象只要 ID 相同，就代表同一身份。
-- 工作日按固定每周资料保存，当前不额外检查预约当天是否为工作日。
-- 按手机号取消会删除所有匹配预约，并反馈删除数量。未添加阻止患者同时预约不同医护人员的额外规则。
-- 手机号为保留前导零的 `String`；只允许去除首尾空格后 7–15 位 ASCII 数字。这是简化教学规则，不是通用国际号码验证。
-- 儿科的最大患者年龄属性限定为 1–18，是教学假设。`Patient` 不保存年龄，预约管理也不执行儿科患者年龄准入。
-- 测试患者和医护姓名均为虚构演示数据；服务说明不是医疗建议。
+- Each manager represents the current day's appointments. There are no date fields, bookings for other days, automatic midnight clearing, user interface, menus, login or persistent storage.
+- The default schedule is 08:00, 08:30, ... 16:00, including 16:00 as an appointment start time. This is the project's interpretation of the schedule's end point.
+- A constructor can replace the entire schedule. A custom `int[]` must be nonempty and contain valid minutes within one day, in strictly increasing order without duplicates. The default half-hour interval is not additionally imposed on a replacement schedule.
+- A matching professional ID and time creates a conflict. Different professionals may have appointments at the same time. Separate objects, including objects of different subclasses, represent the same identity when their IDs match.
+- Working days are stored as fixed weekly details; bookings do not additionally check whether the professional works on the current day.
+- Cancellation by mobile phone removes all matching appointments and reports the number removed. No additional rule prevents a patient from booking different professionals at the same time.
+- Mobile phone numbers are stored as `String` values to preserve leading zeros. After surrounding whitespace is removed, only 7–15 ASCII digits are accepted. This is a simplified teaching rule rather than general international phone-number validation.
+- A paediatrician's maximum patient age is limited to 1–18 as a teaching assumption. `Patient` does not store an age, and appointment management does not enforce age-based eligibility for paediatric bookings.
+- Patient and professional names are fictional demonstration data. Service descriptions are not medical advice.
 
-## 主要操作 API
+## Main Operation API
 
-| 操作 | 方法及结果 |
+| Operation | Method and result |
 | --- | --- |
-| 创建完整预约 | `Appointment(Patient, int timeInMinutes, HealthProfessional)`；无效基本资料抛出 `IllegalArgumentException` |
-| 转换时间 | `Appointment.parseTime(String)` 要求 `HH:mm`；`formatTime(int)` 返回时间标签 |
-| 默认／自定义时间表 | `AppointmentManager()`／`AppointmentManager(int[] allowedTimeSlots)` |
-| 添加 | `addAppointment(Appointment)` 或 `addAppointment(String patientName, String mobilePhone, String time, HealthProfessional)`；返回成功或 `WARNING` 文本 |
-| 查看／筛选 | `getAppointments()`、`getAppointments(int professionalId)`、`getAppointments(String mobilePhone)`；返回独立列表，无匹配时为空 |
-| 查看／筛选并排序 | 对应三个 `getSortedAppointments(...)` 重载；返回从早到晚的列表副本 |
-| 指定预约取消 | `cancelAppointment(int professionalId, int timeInMinutes)`；时间可先由 `parseTime` 转换 |
-| 按手机号取消 | `cancelAppointment(String mobilePhone)`；删除全部匹配项 |
-| 显示结果 | `formatAppointments(ArrayList<Appointment>)`；空结果返回警告，调用方负责打印 |
-| 状态与时间表 | `getAppointmentCount()`、`getAllowedTimeSlots()` |
+| Create a complete appointment | `Appointment(Patient, int timeInMinutes, HealthProfessional)`; invalid basic details cause an `IllegalArgumentException` |
+| Convert times | `Appointment.parseTime(String)` requires `HH:mm`; `formatTime(int)` returns a time label |
+| Default/custom schedule | `AppointmentManager()` / `AppointmentManager(int[] allowedTimeSlots)` |
+| Add | `addAppointment(Appointment)` or `addAppointment(String patientName, String mobilePhone, String time, HealthProfessional)`; returns success or `WARNING` text |
+| View/filter | `getAppointments()`, `getAppointments(int professionalId)` and `getAppointments(String mobilePhone)`; return independent lists, empty when there are no matches |
+| View/filter and sort | The corresponding three `getSortedAppointments(...)` overloads return list copies ordered from earliest to latest |
+| Cancel a specific appointment | `cancelAppointment(int professionalId, int timeInMinutes)`; `parseTime` can convert the time first |
+| Cancel by mobile phone | `cancelAppointment(String mobilePhone)`; removes all matches |
+| Display results | `formatAppointments(ArrayList<Appointment>)`; returns a warning for empty results, with printing handled by the caller |
+| Count and schedule | `getAppointmentCount()` and `getAllowedTimeSlots()` |
 
-预约自身检查完整性及一天内的有效时间；管理类再检查配置时间段与集合中的冲突。只有成功添加后，内部预约数量才增加。
+An appointment checks its own completeness and valid time within a day. The manager then checks the configured slots and conflicts in the collection. The internal appointment count increases only after a successful addition.
 
-## 编译、运行和验证
+## Compile, Run and Verify
 
-在 VS Code 中打开整个项目文件夹，然后在该文件夹的 PowerShell 终端执行：
+Open the entire project folder in VS Code, then run these commands in a PowerShell terminal in that folder:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\run.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\verify.ps1
 ```
 
-`run.ps1` 编译 `src` 并运行 `AssignmentOne`；`verify.ps1` 重新编译并运行 `checks` 中的行为检查。项目使用 JDK 21。本机脚本支持已配置的默认 JDK、`JAVA_HOME` 或 `PATH` 回退；换电脑时应检查 JDK 安装与 VS Code Java 配置。
+`run.ps1` compiles `src` and runs `AssignmentOne`. `verify.ps1` recompiles the project and runs the behavioural checks in `checks`. The project uses JDK 21. The local scripts support the configured default JDK, `JAVA_HOME` or a `PATH` fallback. On another computer, check the JDK installation and VS Code Java configuration.
 
-手动编译和运行的等价示例（按本机实际 JDK 路径调整）：
+Equivalent commands for manual compilation and execution are shown below; adjust the JDK path to match the local installation:
 
 ```powershell
 $a1Jdk = Join-Path $env:USERPROFILE '.jdks\jdk-21.0.13+9'
@@ -89,27 +89,27 @@ New-Item -ItemType Directory -Path .\bin -Force | Out-Null
 & (Join-Path $a1Jdk 'bin\java.exe') -cp .\bin AssignmentOne
 ```
 
-只有前一条编译命令成功后，才运行后一条命令，以免误运行旧的 `.class` 文件。可选生成 Javadoc（沿用上面的变量）：
+Run the Java command only after compilation succeeds, to avoid accidentally running old `.class` files. Optionally generate Javadoc using the same variables:
 
 ```powershell
 & (Join-Path $a1Jdk 'bin\javadoc.exe') -encoding UTF-8 -charset UTF-8 -Xdoclint:all -Werror -d .\javadoc @a1Sources
 ```
 
-2026-11-16 的本地整体验证已通过：11 个生产源码文件使用 `--release 21 -encoding UTF-8 -Xlint:all -Werror` 编译成功；行为检查输出 `All 186 checks passed.`；11 类 Javadoc 经 `-Xdoclint:all -Werror` 检查通过，无警告。
+Local verification passed on 2026-11-16: all 11 production source files compiled successfully with `--release 21 -encoding UTF-8 -Xlint:all -Werror`; the behavioural checks reported `All 186 checks passed.`; and Javadoc for all 11 classes passed `-Xdoclint:all -Werror` without warnings.
 
-主演示实际运行正常结束，输出 180 行：添加后 9 个预约，失败请求后仍为 9 个；按 ID 加时间取消 1 个，再按手机号取消剩余 2 个，最后为 6 个。替换时间表使用独立管理器。详见 [验证记录](reports/VERIFICATION.md)、[演示输出](reports/demo-output.txt)和[检查输出](reports/checks-output.txt)。
+The main demonstration completed successfully and produced 180 lines. There were 9 appointments after the additions and still 9 after rejected requests. Cancellation by ID and time removed 1, then cancellation by mobile phone removed the remaining 2 matches, leaving 6. The replacement schedule uses a separate manager. See the [verification record](reports/VERIFICATION.md), [demonstration output](reports/demo-output.txt) and [check output](reports/checks-output.txt).
 
-## 需求到实现与演示
+## Requirements, Implementation and Demonstration
 
-| brief 部分 | 实现位置 | `AssignmentOne` 中的证明 |
+| Assessment brief section | Implementation | Evidence in `AssignmentOne` |
 | --- | --- | --- |
-| Part 1：共同医护资料 | `HealthProfessional` | 输出数字 ID、姓名和固定工作日 |
-| Part 2：至少四种类型且包含 GP | 六个具体医护子类 | 六类的完整资料和不同服务说明 |
-| Part 3：统一处理医护对象 | 父类型数组及重写方法 | 三位 GP，其他五类各一位；同一循环处理八个对象 |
-| Part 4：预约关联及时间顺序 | `Patient`、`Appointment` | 创建关联对象，输出患者、时间和医护完整详情；排序调用自然顺序 |
-| Part 5：集合管理 | `AppointmentManager` | 添加、两种筛选、全体及两种子集排序、两种取消、缺失结果警告及自定义时间表 |
-| Part 6：端到端演示 | `AssignmentOne` | 同人同时冲突、不同人同时成功、非法数据、取消不存在预约、失败前后数量及取消后的结果 |
+| Part 1: Shared professional details | `HealthProfessional` | Displays numeric IDs, names and fixed working days |
+| Part 2: At least four types, including GP | Six concrete professional subclasses | Displays full details and different service descriptions for all six types |
+| Part 3: Process professional objects together | Base-type array and overridden methods | Processes eight objects in one loop: three GPs and one of each of the other five types |
+| Part 4: Appointment associations and time ordering | `Patient`, `Appointment` | Creates linked objects and displays patient, time and full professional details; sorting uses the natural order |
+| Part 5: Collection management | `AppointmentManager` | Demonstrates additions, both filters, sorting the full collection and both filtered subsets, both cancellation methods, empty-result warnings and a custom schedule |
+| Part 6: End-to-end demonstration | `AssignmentOne` | Demonstrates conflicts for the same professional and time, successful simultaneous bookings for different professionals, invalid data, cancellation of nonexistent bookings, counts before and after rejected requests, and updated results after cancellation |
 
-项目已上传到 [GitHub 的 A1-25259191 目录](https://github.com/ShiyuannnQu/Object-Oriented-Programming-/tree/main/A1-25259191)，远端文件已逐一校验与本地一致。
+The project has been uploaded to the [A1-25259191 directory on GitHub](https://github.com/ShiyuannnQu/Object-Oriented-Programming-/tree/main/A1-25259191), and remote files have been individually verified against the local files.
 
-项目 WakaTime 报告和个人讲解视频仍待完成。CLI 的 `6 mins` 是当天账户汇总，未限定本项目，不能作为完整作业报告；参见 [WakaTime 状态](reports/WAKATIME-STATUS.md)。持续开发历史需要实际的过程提交，本次上传本身不代表已有整个作业周期的进度记录。
+The project-specific WakaTime report and personal explanation video are still outstanding. The CLI's `6 mins` is an account-wide total for the day, not a project-specific result, so it cannot serve as a complete assignment report; see [WakaTime status](reports/WAKATIME-STATUS.md). An ongoing development history requires actual progress commits; this upload alone does not establish a history covering the full assessment period.
